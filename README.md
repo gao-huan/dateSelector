@@ -1,6 +1,6 @@
 #### 自制时间选择器一枚
 #### 调用方法：
-    dom.dateSelector({
+    dom.dateSelector({ //dom: 原生dom选择器
       period: ['2018-06-08', '2028-06-09'], //必传
       showDate: '2020-02-14', //当前显示日期，非必传
       frozenDayTo: '01', //冻结日，只显示某日，非必传
