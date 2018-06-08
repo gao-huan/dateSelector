@@ -1,4 +1,3 @@
-# dateSelector
 #### 自制时间选择器一枚
 #### 调用方法：
     dom.dateSelector({
