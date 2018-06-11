@@ -327,20 +327,20 @@
 	}
 
 	Dater.fn.handler = function(){
-		let _self = this;
 		let oldDate = this.date;
+		let newVal = newVal || this.showTime;
 		Object.defineProperty(this, 'date',{
-			set: function(newV){
-				oldDate = _self.date || _self.startTime;
-				if(oldDate === newV)return;
-				let nArr = newV.split('-');
+			set(v){
+				oldDate = this.date || this.startTime;
+				if(oldDate === v)return;
+				let nArr = v.split('-');
 				let days = new Date(nArr[0], nArr[1], 0).getDate();
-				if(this.frozenDayTo > days)newV = `${nArr[0]}-${nArr[1]}-${days}`;
-				this.newVal = newV;
-				this.item(newV, oldDate);
+				if(this.frozenDayTo > days)v = `${nArr[0]}-${nArr[1]}-${days}`;
+				newVal = v;
+				this.item(v, oldDate);
 			},
-			get: function(){
-				return this.newVal || _self.showTime;
+			get(){
+				return newVal;
 			}
 		});
 	}
