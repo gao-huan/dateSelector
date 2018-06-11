@@ -89,7 +89,7 @@
 		okEle.text = '确认';
 
 		this.clickEventListener(okEle, ()=>{
-			this.ele.tagName === 'INPUT' ? this.ele.value = this.date : '';
+			this.ele.tagName === 'INPUT' ? this.ele.value = this.date : this.ele.innerHTML = this.date;
 			this.callback&&this.callback({
 				date: this.date,
 				dom: this.ele
@@ -336,11 +336,11 @@
 				let nArr = newV.split('-');
 				let days = new Date(nArr[0], nArr[1], 0).getDate();
 				if(this.frozenDayTo > days)newV = `${nArr[0]}-${nArr[1]}-${days}`;
-				this.newaccpropvalue = newV;
+				this.newVal = newV;
 				this.item(newV, oldDate);
 			},
 			get: function(){
-				return this.newaccpropvalue || _self.showTime;
+				return this.newVal || _self.showTime;
 			}
 		});
 	}
